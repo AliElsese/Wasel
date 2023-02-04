@@ -1,0 +1,18 @@
+<% for(var i = 0; i < categories.length; i++) { %>
+    <tr>
+        <td><%= i + 1 %></td>
+        <td><%= categories[i].scataname %></td>
+        <td>
+            <img src="/<%= categories[i].scataimage %>" style="width: 100px;height: 100px;" alt="">
+        </td>
+        <td>
+            <a href="/update-servCategorie/<%= categories[i].scataid %>" style="display: inline-block; color: rgb(0, 0, 139);" class="delete">
+                تعديل
+            </a>
+            <br>
+            <a href="/api-deleteServCategorie/<%= categories[i].scataid %>" style="display: inline-block; color: darkred;" class="delete"> 
+                حذف 
+            </a>
+        </td>
+    </tr>
+<% } %>

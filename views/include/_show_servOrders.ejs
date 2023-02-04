@@ -1,0 +1,21 @@
+<% for(var i = 0; i < orders.length; i++) { %>
+    <tr>
+        <td><%= i + 1 %></td>
+        <td><%= orders[i].userName %></td>
+        <td><%= orders[i].userPhone %></td>
+        <td><%= orders[i].userAddress %></td>
+        <td><%= orders[i].serviceName %></td>
+        <td>
+            <% if(orders[i].Simage == "null") { %>
+                لا توجد أشعه
+            <% } else { %>
+                <img src="/<%= orders[i].Simage %>" style="width: 100px;height: 100px;" alt="">
+            <% } %>
+        </td>
+        <td>
+            <a href="/api/categories/<%= orders[i].requestid %>" style="display: inline-block; color: darkred;" class="delete"> 
+                حذف 
+            </a>
+        </td>
+    </tr>
+<% } %>

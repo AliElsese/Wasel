@@ -1,0 +1,53 @@
+<%- include('include/_headerAdmin') %>
+
+<div class="col-md-12 text-center mt-4">
+  <h2 style="color: #111111;"> تسجيل الدخول </h3>
+  <div class="separator mb-4"></div>
+</div>
+
+<% if(typeof message != 'undefined') { %>
+  <div class="col-md-12 text-center">
+      <h4 class="alert alert-danger mt-4">
+          <%= message %>
+      </h4>
+  </div>
+<% } %>
+
+<div class="col-md-12 text-right">
+  <form action="/login" method="POST">
+    <div class="row mb-2">
+    
+      <div class="col-md-3 d-md-block"></div>
+
+      <!-- Text input-->
+      <div class="form-group col-md-6">  
+        <input type="hidden" name="id" value="">
+        <input id="name" name="name" placeholder="اسم المستخدم" class="form-control" type="text">
+      </div>
+
+      <div class="col-md-3 d-md-block"></div>
+    </div>
+    <div class="row mb-2">
+    
+      <div class="col-md-3 d-md-block"></div>
+
+      <!-- Text input-->
+      <div class="form-group col-md-6">  
+        <input type="hidden" name="id" value="">
+        <input id="password" name="password" placeholder="كلمة السر" class="form-control" type="password">
+      </div>
+      
+
+      <div class="col-md-3 d-md-block"></div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-md-12 text-center">
+          <div class="form-group">
+              <button type="submit" class="btn"> تسجيل الدخول </button>
+          </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<%- include('include/_footerAdmin') %>

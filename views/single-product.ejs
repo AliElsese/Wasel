@@ -1,0 +1,106 @@
+<%- include('include/_header') %>
+
+<!-- Start Nav Bar -->
+<header class="header-one">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="/"><img src="/img/logo.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <div class="collapse navbar-collapse main-menu-item "
+                id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto text-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">الرئيسيه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/products">المنتجات</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">تعرف علينا</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">تواصل معنا</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cart">
+                                <i class="fa fa-shopping-cart"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- End Nav Bar -->
+
+<!-- Start breadcrumb Area -->
+<div class="page-area" style="background-image: url(/img/bg.jpg);">
+    <div class="breadcrumb-overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="breadcrumb">
+                    <div class="section-headline">
+                        <h3 class="text-white pt-3">المنتجات</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="breadcrumb-row">
+    <div class="container">
+        <ul class="list-inline pl-3">
+            <li><a href="/" class="active">الرئيسيه</a></li>
+            <li><i class="fas fa-chevron-left text-white m-1"></i></li>
+            <li><a href="/products">المنتجات</a></li>
+        </ul>
+    </div>
+</div>
+<!-- End breadcrumb Area -->
+
+<div class="container product">
+    
+    <div class="row mt-5 mb-5">
+        <div class="col-md-12 text-center">
+            <h3>تفاصيل عن المنتج</h3>
+            <div class="separator"></div>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5">
+        <div class="col-md-6 text-center">
+            <div class="product-details">
+                <div class="pd-title mb-3">
+                    <h3><%= product[0].proname %></h3>
+                </div>
+                <div class="pd-desc mb-3">
+                    <p><%= product[0].prodescription %></p>
+                    <h4><%= product[0].proprice %></h4>
+                </div>
+                
+                <div class="col-md-12 text-center">
+                    <form action="/add-to-cart" method="post">
+                        <input type="hidden" name="id" value="<%= product[0].proid %>">
+                        <button type="submit" class="btn">اضف الى العربه</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <img src="/<%= product[0].proimage %>" alt="" style="width: 100%;height: 350px;">
+        </div>
+    </div>
+
+</div>
+
+<%- include('include/_footer') %> 

@@ -1,0 +1,111 @@
+<%- include('include/_headerAdmin') %>
+
+        <div class="content m-5">
+            <div class="product-table m-5">
+
+                <div class="col-md-12 text-right mt-5 pt-5">
+                    <a href="/dashboard-products" class="btn mb-3">جميع المنتجات</a>
+                </div>
+
+                <div class="col-md-12 text text-center mt-5">
+                    <div class="form-title">
+                        <h2>منتج جديد</h2>
+                        <div class="separator mb-2"></div>
+                    </div>
+                </div>
+
+                <form action="/api-updateProduct" method="post" id="add_product" enctype="multipart/form-data">
+                      
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+
+                            <div class="row mb-2">
+
+                                <div class="col-md-2 d-md-block"></div>
+
+                                <!-- Text input-->
+                                <div class="form-group col-md-4">
+                                    <label class="control-label" for="productname">اسم المنتج</label>  
+                                    <input type="hidden" name="productid" value="<%= product[0].productid %>">
+                                    <input id="product_name" name="proname" class="form-control" type="text" value="<%= product[0].proname %>">
+                                </div>
+                                
+                                <!-- Text input-->
+                                <div class="form-group col-md-4">
+                                    <label class="control-label" for="product_price">سعر المنتج</label>  
+                                    
+                                    <input id="product_price" name="proprice" class="form-control" type="text" value="<%= product[0].proprice %>">
+                                </div>
+
+                                <div class="col-md-2 d-md-block"></div>
+
+                            </div>
+
+                            <div class="row mb-2">
+
+                                <div class="col-md-2 d-md-block"></div>
+
+                                <div class="col-md-8">
+                                    <!-- Select Basic -->
+                                    <div class="form-group">
+                                        <label class="control-label" for="product_categorie">القسم</label>
+                                        
+                                        <select id="product_categorie" name="cataname" class="form-control">
+                                            <% for(var i = 0; i < categories.length; i++) { %>
+                                                <option value="<%= categories[i].cataname %>">
+                                                    <%= categories[i].cataname %>
+                                                </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mb-2">
+
+                                <div class="col-md-2 d-md-block"></div>
+                                
+                                <div class="col-md-8">
+                                    <!-- Textarea -->
+                                    <div class="form-group">
+                                        <label class="control-label" for="productdescription">وصف المنتج</label>
+                                                            
+                                        <textarea class="form-control" id="product_description" name="prodescription"><%= product[0].prodescription %></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mb-2">
+
+                                <div class="col-md-2 d-md-block"></div>
+
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label class="control-label" for="filebutton">صورة المنتج</label>
+                                        
+                                        <input id="image" name="proimage" class="input-file" type="file">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12 text-center">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn"> حفظ </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </form>
+
+    
+            </div>
+        </div>
+
+<%- include('include/_footerAdmin') %>

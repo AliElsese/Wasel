@@ -1,0 +1,99 @@
+<%- include('include/_headerAdmin') %>
+
+        <div class="content m-5">
+            <div class="product-table m-5">
+                
+                <% if(typeof message != 'undefined') { %>
+                    <div class="col-md-12 text-center">
+                        <h4 class="alert alert-danger mt-4">
+                            <%= message %>
+                        </h4>
+                    </div>
+                <% } %>
+
+                <div class="col-md-12 text-right mt-5 pt-5">
+                    <a href="/dashboard-services" class="btn mb-3">جميع الخدمات</a>
+                </div>
+
+                <div class="col-md-12 text text-center mt-5">
+                    <div class="form-title">
+                        <h2>خدمه جديده</h2>
+                        <div class="separator mb-2"></div>
+                    </div>
+                </div>
+
+                <form action="/api-addService" method="post" id="add_service" enctype="multipart/form-data">
+                      
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+
+                            <div class="row mb-2">
+
+                                <div class="col-md-2 d-md-block"></div>
+
+                                <!-- Text input-->
+                                <div class="form-group col-md-4">
+                                    <label class="control-label" for="service_name">اسم الخدمه</label>  
+                                    <input type="hidden" name="id" value="">
+                                    <input id="service_name" name="servicename" placeholder="اسم الخدمه" class="form-control" required="" type="text" value="">
+                                </div>
+                                
+                                <!-- Text input-->
+                                <div class="form-group col-md-4">
+                                    <!-- Textarea -->
+                                    <div class="form-group">
+                                        <label class="control-label" for="filebutton">صورة الخدمه</label>
+                                        
+                                        <input id="image" name="serviceimage" class="input-file" type="file">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 d-md-block"></div>
+
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-2 d-md-block"></div>
+
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label" for="product_categorie">القسم</label>
+                                        
+                                        <select id="product_categorie" name="scataname" class="form-control">
+                                            <% for(var i = 0; i < categories.length; i++) { %>
+                                                <option value="<%= categories[i].scataname %>">
+                                                    <%= categories[i].scataname %>
+                                                </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label" for="service_description">وصف الخدمه</label>
+                                                            
+                                        <textarea class="form-control" id="service_description" name="servicedescription"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-2 d-md-block"></div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-md-12 text-center">
+                                    <div class="form-group">
+                                        <button type="submit" class="btn"> حفظ </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </form>
+    
+            </div>
+        </div>
+
+<%- include('include/_footerAdmin') %>

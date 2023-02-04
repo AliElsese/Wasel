@@ -1,0 +1,28 @@
+
+<div class="col-md-3 d-none d-md-block"></div>
+<div class="col-md-6 text-center">
+    <h4 class="mb-4">ادخل هذه البيانات</h4>
+    
+    <form action="/api-orderService1" method="post" enctype="multipart/form-data">
+        <div class="col-md-12 mb-3">
+            <input type="text" class="form-control text-right" name="serviceName" value="<%= service[0].servicename %>">
+        </div>
+        <div class="col-md-12 mb-3">
+            <input type="text" class="form-control text-right" name="userName" placeholder="اسمك">
+        </div>
+        <div class="col-md-12 mb-3">
+            <input type="text" class="form-control text-right" name="userPhone" placeholder="رقم الهاتف">
+        </div>
+        <div class="col-md-12 mb-3">
+            <input type="text" class="form-control text-right" name="userAddress" placeholder="العنوان">
+        </div>
+        <div class="col-md-12 mb-3">
+            <input type="file" class="form-control text-right" name="Simage">
+        </div>
+        <div class="col-md-12 mb-3">
+            <button type="submit" class="btn">ارسال</button>
+        </div>
+    </form>
+    
+</div>
+<div class="col-md-3 d-none d-md-block"></div>                               

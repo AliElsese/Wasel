@@ -1,0 +1,20 @@
+<% for(var i = 0; i < services.length; i++) { %>
+    <tr>
+        <td><%= i + 1 %></td>
+        <td><%= services[i].scataname %></td>
+        <td><%= services[i].servicename %></td>
+        <td>
+            <img src="/<%= services[i].serviceimage %>" style="width: 100px;height: 100px;" alt="">
+        </td>
+        <td><%= services[i].servicedescription %></td>
+        <td>
+            <a href="/update-service/<%= services[i].serviceid %>" style="display: inline-block; color: rgb(0, 0, 139);" class="delete">
+                تعديل
+            </a>
+            <br>
+            <a href="/api-deleteService/<%= services[i].serviceid %>" style="display: inline-block; color: darkred;" class="delete"> 
+                حذف 
+            </a>
+        </td>
+    </tr>
+<% } %>

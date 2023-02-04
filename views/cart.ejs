@@ -1,0 +1,132 @@
+<%- include('include/_header') %>
+
+        <!-- Start Nav Bar -->
+        <header class="header-one">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="/"><img src="/img/logo.png" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-bars"></i>
+                        </button>
+      
+                        <div class="collapse navbar-collapse main-menu-item "
+                        id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto text-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">الرئيسيه</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/products">المنتجات</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about">تعرف علينا</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact">تواصل معنا</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- End Nav Bar -->
+
+        <!-- Start breadcrumb Area -->
+        <div class="page-area" style="background-image: url(/img/bg.jpg);">
+            <div class="breadcrumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="breadcrumb">
+                            <div class="section-headline">
+                                <h3 class="text-white pt-3">سلة المشتريات</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumb-row">
+            <div class="container">
+                <ul class="list-inline pl-3">
+                    <li><a href="/" class="active">الرئيسيه</a></li>
+                    <li><i class="fas fa-chevron-left text-white m-1"></i></li>
+                    <li><a href="/cart">سلة المشتريات</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End breadcrumb Area -->
+
+        <!-- Start Page Content -->
+        <div class="container">
+            
+            <form action="/add-to-orders" method="post" id="cart">
+                <div class="row mt-5 mb-5">
+                    
+                    <div class="col-md-8">
+                        <h2 class="col-md-12 section-header text-center">السلة</h2>
+                        <div class="col-md-12 text-center">
+                            <div class="separator mb-4"></div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 cart-row">
+                            <span class="cart-item cart-header cart-column">المنتج</span>
+                            <span class="cart-price cart-header cart-column">السعر</span>
+                            <span class="cart-quantity cart-header cart-column">الكميه</span>
+                        </div>
+                        <div class="col-md-12 col-sm-12 cart-items">
+                            <% for(var i = 0 ; i < productsInCart.length ; i++) { %>
+                                <div class="col-md-12 col-sm-12 cart-row cart-column">
+                                    <div class="cart-item">
+                                        <img class="cart-item-image" src="/<%= productsInCart[i].proimage %>" style="height: 100px;width: 100px;">
+                                        <span class="title"><%= productsInCart[i].proname %></span>
+                                    </div>
+                                    <span class="cart-price price m-5"><%= productsInCart[i].proprice %></span>
+                                    <div class="cart-quantity m-5">
+                                        <%= productsInCart[i].qty %>
+                                    </div>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    
+
+                    <div class="col-md-4">
+                        <div class="col-md-12 text-center">
+                            <h4 class="mb-4">ادخل هذه البيانات</h4>
+                            
+                            
+                                <div class="col-md-12 mb-3">
+                                    <input type="text" class="form-control text-right" name="name" placeholder="اسمك">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <input type="text" class="form-control text-right" name="address" placeholder="المحافظه">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <input type="text" class="form-control text-right" name="addressDetails" placeholder="العنوان تفصيلي">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <input type="text" class="form-control text-right" name="phoneNumber" placeholder="رقم التليفون">
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <button type="submit" class="btn" id="order">تاكيد</button>
+                                </div>
+        
+                        </div>                              
+                    </div>
+        
+                </div>
+            </form>
+        </div>
+        <!-- End Page Content -->
+
+<%- include('include/_footer') %> 

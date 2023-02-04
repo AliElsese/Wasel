@@ -1,0 +1,180 @@
+<%- include('include/_header') %>
+
+        <!-- Start Nav Bar -->
+        <header class="header-one">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="/"><img src="/img/logo.png" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-bars"></i>
+                        </button>
+      
+                        <div class="collapse navbar-collapse main-menu-item "
+                        id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto text-center">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/">الرئيسيه</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/products">المنتجات</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about">نعرف علينا</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact">تواصل معنا</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- End Nav Bar -->
+
+        <!-- Start Home Slider -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+              <!-- Slide One - Set the background image for this slide in the line below -->
+              <div class="carousel-item active" style="background-image: url('img/syringe.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h2 class="display-4">First Slide</h2>
+                  <p class="lead">This is a description for the first slide.</p>
+                </div>
+              </div>
+              <!-- Slide Two - Set the background image for this slide in the line below -->
+              <div class="carousel-item" style="background-image: url('img/stethoscope.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h2 class="display-4">Second Slide</h2>
+                  <p class="lead">This is a description for the second slide.</p>
+                </div>
+              </div>
+              <!-- Slide Three - Set the background image for this slide in the line below -->
+              <div class="carousel-item" style="background-image: url('img/blood-test.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                  <h2 class="display-4">Third Slide</h2>
+                  <p class="lead">This is a description for the third slide.</p>
+                </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <i class="fas fa-angle-left"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <i class="fas fa-angle-right"></i>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- End Home Slider -->
+
+        <!-- Start Home Section -->
+        <div class="home mt-5 mb-5">
+            <div class="container">
+                
+                <div class="row mb-5">
+                    <div class="col-md-12 text-center">
+                        <h3>الأقسام</h3>
+                        <div class="separator mb-4"></div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <% for(var i = 0; i < categories.length; i++) { %>
+                            <a href="/products/<%= categories[i].cataname %>" class="btn mb-3"><%= categories[i].cataname %></a>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-12 text-center">
+                        <h3>مجموعه من المنتجات</h3>
+                        <div class="separator mb-4"></div>
+                    </div>
+                    <% if(products.length == 0) { %>
+                    <div class="col-md-12 text-center">
+                        <h2>لا توجد منتجات</h2>
+                    </div>
+                    <% } else { %>
+                        <% for(var i = 0; i < products.length ; i++) { %>
+                            <div class="col-md-4 col-sm-12 mb-5">
+                                <div class="product-grid3">
+                                    <div class="product-image3">
+                                        <a href="#">
+                                            <img class="pic-1" src="/<%= products[i].proimage %>" style="height: 280px;width: 100%;">
+                                        </a>
+                                        <ul class="social">
+                                            <li><a href="/single-product/<%= products[i].proid %>"><i class="fas fa-eye"></i></a></li>
+                                            <li>
+                                                <form action="/add-to-cart" method="post">
+                                                    <input type="hidden" name="id" value="<%= products[i].proid %>">
+                                                    <button type="submit"><i class="fa fa-shopping-cart"></i></button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-content col-md-12 text-center">
+                                        <h3 class="title">
+                                            <%= products[i].proname %>
+                                        </h3>
+                                        <div class="price">
+                                            <%= products[i].proprice %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    
+                        <div class="col-md-12 text-center">
+                            <a href="/products" class="btn">جميع المنتجات</a>
+                        </div>
+                    <% } %>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Home Section -->
+
+        <!-- Start First Property -->
+        <div class="what-we-do" style="background-image: url(img/pill.jpg);">
+            <div class="container p-5">
+                
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2> مجموعة الخدمات </h2>
+                        <div class="separator"></div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12 text-center">
+
+                        <p class="offer-text text-white">
+                            نستطيع تقديم مجموعة من افضل الخدمات في جالنا الطبي ..
+                        </p>
+
+                    </div>
+
+                    <div class="col-md-12 text-center mt-3">
+
+                        <a href="/servCategories" class="btn mb-3"> ابدأ الآن .. </a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- End First Property -->
+
+<%- include('include/_footer') %>

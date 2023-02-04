@@ -1,0 +1,89 @@
+<%- include('include/_header') %>
+
+        <!-- Start Nav Bar -->
+        <header class="header-one">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container">
+                        <a class="navbar-brand" href="/"><img src="/img/logo.png" alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-bars"></i>
+                        </button>
+      
+                        <div class="collapse navbar-collapse main-menu-item "
+                        id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto text-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/">الرئيسيه</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/products">المنتجات</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about">تعرف علينا</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact">تواصل معنا</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/cart">
+                                        <i class="fa fa-shopping-cart"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- End Nav Bar -->
+
+        <!-- Start breadcrumb Area -->
+        <div class="page-area" style="background-image: url(/img/bg.jpg);">
+            <div class="breadcrumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="breadcrumb">
+                            <div class="section-headline">
+                                <h3 class="text-white pt-3">الخدمات</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="breadcrumb-row">
+            <div class="container">
+                <ul class="list-inline pl-3">
+                    <li><a href="/" class="active">الرئيسيه</a></li>
+                    <li><i class="fas fa-chevron-left text-white m-1"></i></li>
+                    <li><a href="/servCategories">الخدمات</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- End breadcrumb Area -->
+
+        <!-- Start Page Content -->
+        <div class="special-request">
+
+            <div class="row mt-5">
+                <div class="col-md-12 text-center">
+                    <h3><%= service[0].servicename %></h3>
+                    <div class="separator"></div>
+                </div>
+            </div>
+
+            <div class="row m-5">
+
+                <%- include('include/_serviceForm') %>
+            
+            </div>
+        </div>
+        <!-- End Page Content -->
+
+<%- include('include/_footer') %> 

@@ -1,0 +1,75 @@
+<%- include('include/_headerAdmin') %>
+
+        <div class="content m-5">
+            <div class="conainer">
+                <div class="product-table m-5">
+                    <% if(typeof message != 'undefined') { %>
+                        <div class="col-md-12 text-center">
+                            <h4 class="alert alert-danger mt-4">
+                                <%= message %>
+                            </h4>
+                        </div>
+                    <% } %> 
+                    
+
+                    <div class="col-md-12 text-right mt-5 pt-5">
+                        <a href="/dashboard-servCategories" class="btn mb-3">جميع الأقسام</a>
+                    </div>
+    
+                    <div class="col-md-12 text text-center mt-5">
+                        <div class="form-title">
+                            <h2>قسم جديد</h2>
+                            <div class="separator mb-2"></div>
+                        </div>
+                    </div>
+                    
+    
+                    <form action="/api-addServCategorie" method="post" id="add_categorie" enctype="multipart/form-data">
+                          
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+    
+                                <div class="row mb-2">
+    
+                                    <div class="col-md-2 d-md-block"></div>
+    
+                                    <!-- Text input-->
+                                    <div class="form-group col-md-4">
+                                        <label class="control-label" for="categorie_name">اسم القسم</label>  
+                                        <input type="hidden" name="id" value="">
+                                        <input id="categorie_name" name="scataname" placeholder="اسم القسم" class="form-control" required="" type="text" value="">
+                                    </div>
+                                    
+                                    <!-- Text input-->
+                                    <div class="form-group col-md-4">
+                                        <!-- Textarea -->
+                                        <div class="form-group">
+                                            <label class="control-label" for="filebutton">صورة القسم</label>
+                                            
+                                            <input id="image" name="scataimage" class="input-file" type="file">
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-md-2 d-md-block"></div>
+    
+                                </div>
+    
+                                <div class="row mb-2">
+                                    <div class="col-md-12 text-center">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn"> حفظ </button>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+    
+                    </form>
+    
+            </div>
+            </div>
+        </div>
+
+<%- include('include/_footerAdmin') %>
+        

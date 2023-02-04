@@ -1,0 +1,21 @@
+<% for(var i = 0; i < products.length; i++) { %>
+<tr>
+    <td><%= i + 1 %></td>
+    <td><%= products[i].proname %></td>
+    <td><%= products[i].proprice %></td>
+    <td><%= products[i].cataname %></td>
+    <td><%= products[i].prodescription %></td>
+    <td>
+        <img src="/<%= products[i].proimage %>" style="width: 100px;height: 100px;" alt="">
+    </td>
+    <td>
+        <a href="/update-product/<%= products[i].proid %>" style="display: inline-block; color: rgb(0, 0, 139);" class="delete">
+            تعديل
+        </a>
+        <br>
+        <a href="/api-deleteProduct/<%= products[i].proid %>" style="display: inline-block; color: darkred;" class="delete"> 
+            حذف 
+        </a>
+    </td>
+</tr>
+<% } %>
